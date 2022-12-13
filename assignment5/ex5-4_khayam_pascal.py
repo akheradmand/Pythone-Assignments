@@ -16,7 +16,7 @@ def khayam_pascal(n):
 
     for r in khayam_pascal:
         for c in r:
-            print(c,end=' ')
+            print(c,end='  ')
         print("")
 
 khayam_pascal(n)

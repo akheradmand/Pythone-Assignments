@@ -19,7 +19,7 @@ def chess(n,m):
 
     for r in chess_list:
         for c in r:
-            print(c,end='')
+            print(c,end=' ')
         print("")
 
 chess(n,m)
