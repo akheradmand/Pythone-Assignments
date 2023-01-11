@@ -33,7 +33,6 @@ class Time:
         return result
 
     def time_to_seconds(self):
-        global seconds
         seconds=self.hour*3600+self.minute*60+self.second
         return seconds
 
@@ -80,16 +79,16 @@ print("\033[38;5;4m","t1-t2: ","\033[0m",end='')
 t4.show()
 
 # convert seconds to time
-t=Time.seconds_to_time(3682)
+t5=Time.seconds_to_time(3682)
 print("\033[38;5;4m","3682 s: ","\033[0m",end='')
-t.show()
+t5.show()
 
 # convert time to seconds
-t1.time_to_seconds()
+t6=t1.time_to_seconds()
 print("\033[38;5;4m",end='')
 t1.show()
 print("= ","\033[0m",end='')
-print(seconds,"sec")
+print(t6,"sec")
 
 # convert GMT time to tehran
 tehran_time=t1.gmt_to_tehran()

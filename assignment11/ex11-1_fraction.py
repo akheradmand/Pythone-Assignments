@@ -33,7 +33,6 @@ class Fraction:
         return x
 
     def fraction_to_number(self):
-        global result
         result=self.soorat/self.makhraj
         return result
 
@@ -78,7 +77,7 @@ div_ans.show()
 #convert to decimal number
 to_decimal=a.fraction_to_number()
 print("fraction to decimal (a) = ",end='')
-print(result)
+print(to_decimal)
 
 #simplify
 simp_ans=a.simplify()
