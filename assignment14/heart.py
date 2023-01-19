@@ -5,9 +5,5 @@ class Heart(arcade.Sprite):
         super().__init__("images\heart.png")
         self.center_x=25*(i+1)
         self.center_y=20
-        self.number=3
         self.width=20
         self.height=20
-
-    def remove_heart(self):
-        ...

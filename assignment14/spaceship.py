@@ -10,7 +10,7 @@ class Spaceship(arcade.Sprite):
         self.change_y=0
         self.width=48 # dimension of object
         self.height=48
-        self.speed=4
+        self.speed=6
         self.game_width=game.width
         self.bullet_list=[]
 

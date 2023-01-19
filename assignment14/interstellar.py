@@ -1,9 +1,10 @@
-import random
+# import random
 import time
 import arcade
 from spaceship import Spaceship
 from enemy import Enemy
 from heart import Heart
+from score import Score
 
 # start_time=time.time()
 class Game(arcade.Window):
@@ -14,7 +15,9 @@ class Game(arcade.Window):
         self.spaceship=Spaceship(self)
         self.enemy_list=[]
         self.time=time.time()
-        self.heart_list=[Heart(2-i) for i in range(3)] #اندیس برای حذف قلبهااز راست به چپ
+        self.heart_number=3
+        self.heart_list=[Heart(self.heart_number-1-i) for i in range(self.heart_number)] #اندیس برای حذف قلبهااز راست به چپ
+        self.score=Score(self)
 
     def on_draw(self):
         arcade.start_render()
@@ -31,6 +34,12 @@ class Game(arcade.Window):
         for heart in self.heart_list:
             heart.draw()
 
+        self.score.draw()
+
+        if len(self.heart_list)==0:
+            arcade.set_background_color(arcade.color.BLACK)
+            arcade.draw_text("Game Over",self.width//3,self.height//2,arcade.color.RED,40)
+
         arcade.finish_render()
 
     def on_key_press(self, symbol: int, modifiers: int):
@@ -40,7 +49,7 @@ class Game(arcade.Window):
             self.spaceship.change_x=1
         elif symbol==arcade.key.DOWN:
             self.spaceship.change_x=0
-        elif symbol==arcade.key.SPACE:
+        elif symbol==arcade.key.SPACE and len(self.heart_list)!=0:
             self.spaceship.fire()
         
     # def on_key_release(self, symbol: int, modifiers: int):
@@ -81,14 +90,13 @@ class Game(arcade.Window):
 
         delta_time=round((time.time()-self.time),0)
         # print(round((time.time()-self.time),2))
-        if delta_time==3:
+        if delta_time==3 and len(self.heart_list)!=0:
             self.time=time.time()
             self.new_enemy=Enemy(self)
             self.enemy_list.append(self.new_enemy)
 
         if len(self.heart_list)==0:
-            arcade.set_background_color(arcade.color.BLACK)
-            # self.background=arcade.load_texture("")
+            self.spaceship.change_x=0
 
 window=Game()
 arcade.run()
