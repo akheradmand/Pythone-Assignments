@@ -4,9 +4,7 @@ import arcade
 from spaceship import Spaceship
 from enemy import Enemy
 from heart import Heart
-from score import Score
 
-# start_time=time.time()
 class Game(arcade.Window):
     def __init__(self):
         super().__init__(width=800, height=600, title="Interstellar Game 2023")
@@ -17,7 +15,7 @@ class Game(arcade.Window):
         self.time=time.time()
         self.heart_number=3
         self.heart_list=[Heart(self.heart_number-1-i) for i in range(self.heart_number)] #اندیس برای حذف قلبهااز راست به چپ
-        self.score=Score(self)
+        self.game_over=False
 
     def on_draw(self):
         arcade.start_render()
@@ -34,11 +32,12 @@ class Game(arcade.Window):
         for heart in self.heart_list:
             heart.draw()
 
-        self.score.draw()
+        arcade.draw_text(self.spaceship.score,self.width*9//10,15,arcade.color.RED,15)
 
-        if len(self.heart_list)==0:
+        if self.game_over==True:
             arcade.set_background_color(arcade.color.BLACK)
             arcade.draw_text("Game Over",self.width//3,self.height//2,arcade.color.RED,40)
+            arcade.play_sound(arcade.load_sound(":resources:sounds/gameover5.wav"))
 
         arcade.finish_render()
 
@@ -47,10 +46,11 @@ class Game(arcade.Window):
             self.spaceship.change_x=-1
         elif symbol==arcade.key.RIGHT:
             self.spaceship.change_x=1
-        elif symbol==arcade.key.DOWN:
+        elif symbol==arcade.key.DOWN or self.game_over==True:
             self.spaceship.change_x=0
-        elif symbol==arcade.key.SPACE and len(self.heart_list)!=0:
+        elif symbol==arcade.key.SPACE and self.game_over==False:
             self.spaceship.fire()
+            arcade.play_sound(arcade.load_sound(":resources:sounds/hit2.wav"))
         
     # def on_key_release(self, symbol: int, modifiers: int):
     #     self.spaceship.change_x=0
@@ -59,14 +59,15 @@ class Game(arcade.Window):
 
         for enemy in self.enemy_list:
             if arcade.check_for_collision(self.spaceship,enemy):
-                print("Game Over ☠")
-                exit(0)
+                self.game_over=True
         
         for enemy in self.enemy_list:
             for bullet in self.spaceship.bullet_list:
                 if arcade.check_for_collision(enemy,bullet):
+                    arcade.play_sound(arcade.load_sound(":resources:sounds/explosion2.wav"))
                     self.enemy_list.remove(enemy)
                     self.spaceship.bullet_list.remove(bullet)
+                    self.spaceship.score += 1
 
         self.spaceship.move()
 
@@ -90,13 +91,13 @@ class Game(arcade.Window):
 
         delta_time=round((time.time()-self.time),0)
         # print(round((time.time()-self.time),2))
-        if delta_time==3 and len(self.heart_list)!=0:
+        if delta_time==3 and self.game_over==False:
             self.time=time.time()
             self.new_enemy=Enemy(self)
             self.enemy_list.append(self.new_enemy)
 
         if len(self.heart_list)==0:
-            self.spaceship.change_x=0
+            self.game_over=True
 
 window=Game()
 arcade.run()

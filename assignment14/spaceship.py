@@ -13,6 +13,7 @@ class Spaceship(arcade.Sprite):
         self.speed=6
         self.game_width=game.width
         self.bullet_list=[]
+        self.score=0
 
     def move(self):
         if self.change_x==-1:
