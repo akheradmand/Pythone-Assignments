@@ -4,10 +4,40 @@ from PySide6.QtWidgets import QApplication, QMessageBox
 from PySide6.QtUiTools import QUiLoader
 
 def check():
-    if buttons[0][0].text()=="X" and buttons[0][1].text()=="X" and buttons[0][2].text()=="X":
-        # print("player1 wins")
-        msg_box=QMessageBox(text="Player1 wins")
-        msg_box.exec()
+    for i in range(3):
+        if buttons[i][0].text()=="X" and buttons[i][1].text()=="X" and buttons[i][2].text()=="X":
+            # print("player1 wins")
+            msg_box=QMessageBox(text="Player1 wins")
+            msg_box.exec()
+
+        elif buttons[0][i].text()=="X" and buttons[1][i].text()=="X" and buttons[2][i].text()=="X":
+            msg_box=QMessageBox(text="Player1 wins")
+            msg_box.exec()
+
+        elif buttons[i][0].text()=="O" and buttons[i][1].text()=="O" and buttons[i][2].text()=="O":
+            msg_box=QMessageBox(text="Player2 wins")
+            msg_box.exec()
+
+        elif buttons[0][i].text()=="O" and buttons[1][i].text()=="O" and buttons[2][i].text()=="O":
+            msg_box=QMessageBox(text="Player2 wins")
+            msg_box.exec()
+
+    if buttons[0][0].text()=="X" and buttons[1][1].text()=="X" and buttons[2][2].text()=="X":
+            msg_box=QMessageBox(text="Player1 wins")
+            msg_box.exec()
+
+    if buttons[0][2].text()=="X" and buttons[1][1].text()=="X" and buttons[2][0].text()=="X":
+            msg_box=QMessageBox(text="Player1 wins")
+            msg_box.exec()
+
+    if buttons[0][0].text()=="O" and buttons[1][1].text()=="O" and buttons[2][2].text()=="O":
+            msg_box=QMessageBox(text="Player2 wins")
+            msg_box.exec()
+
+    if buttons[0][2].text()=="O" and buttons[1][1].text()=="O" and buttons[2][0].text()=="O":
+            msg_box=QMessageBox(text="Player2 wins")
+            msg_box.exec()
+
 
 def play(row, col):
     global player
