@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>245</width>
-    <height>336</height>
+    <width>255</width>
+    <height>307</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -101,6 +101,9 @@
         </property>
         <property name="text">
          <string>2 player</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -306,7 +309,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>245</width>
+     <width>255</width>
      <height>22</height>
     </rect>
    </property>
