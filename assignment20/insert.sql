@@ -1,0 +1,10 @@
+INSERT INTO customers(id,name,city,country) VALUES(1001,"Hassan Arefi","Mashhad","Iran");
+INSERT INTO customers(id,name,city,country) VALUES(1002,"Ali Senobari","Tehran","Iran");
+INSERT INTO customers(id,name,city,country) VALUES(1003,"Ana Modarresi","Gent","Belgium");
+INSERT INTO customers(id,name,city,country) VALUES(1004,"Saeede Mahmoodi","Mashhad","Iran");
+INSERT INTO customers(id,name,city,country) VALUES(1005,"Nahid Ghasemi","Istanbul","Turkey");
+INSERT INTO products(id,name,price,count) VALUES(2001,"pencil",10000,20);
+INSERT INTO products(id,name,price,count) VALUES(2002,"eraser",12000,0);
+INSERT INTO products(id,name,price,count) VALUES(2003,"pencil sharpener",18000,2);
+INSERT INTO products(id,name,price,count) VALUES(2004,"ruler",15000,5);
+INSERT INTO products(id,name,price,count) VALUES(2005,"pen",8000,30);
