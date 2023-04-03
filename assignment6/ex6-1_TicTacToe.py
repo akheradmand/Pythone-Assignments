@@ -22,7 +22,7 @@ def check_game():
 
     tr_game_board=np.array(game_board).T.tolist() #transpose game_board
     for i in range(3):
-
+        # print(set(game_board[i]))
         if len(set(game_board[i]))==1 and list(set(game_board[i]))==["x"]:
             print("player 1 wins!")
             exit()
@@ -62,11 +62,11 @@ def check_game():
     # elapsed_time= end_time-start_time
 
 def player1():
-
+    ...
 
 def player2():
 
-    
+    ...
 
 title = pyfiglet.figlet_format("Tic Tac Toe",font="slant")
 
@@ -77,6 +77,7 @@ player=input("enter '1' for play with computer or '2' for two-players= ")
 if player==1:
     ...
 elif player==2:
+    ...
 
 game_board= [["-","-","-"],
              ["-","-","-"],
