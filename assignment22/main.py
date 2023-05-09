@@ -6,6 +6,7 @@ from main_window import Ui_MainWindow
 from database import Database
 
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
