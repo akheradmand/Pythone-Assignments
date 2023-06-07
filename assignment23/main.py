@@ -24,8 +24,6 @@ class MainWindow(QMainWindow):
             for j in range(0,9):
                 self.line_edits[i][j].textChanged.connect(partial(self.validation,i,j))
 
-        
-
     def open_file(self):
         file_path=QFileDialog.getOpenFileName(self,"Open File...")[0]
         # print(file_path)
@@ -72,16 +70,14 @@ class MainWindow(QMainWindow):
             number2=self.line_edits[i][k].text()
             if j != k and number2 != "" and number1==number2:
                 self.line_edits[i][j].setStyleSheet("background-color:red")
-                self.line_edits[i][k].setStyleSheet("background-color:blue")
-                print("***")
+                # self.line_edits[i][k].setStyleSheet("background-color:blue")
                 return False
             
         for k in range(0,9):
             number2=self.line_edits[k][j].text()
             if i != k and number2 != "" and number1==number2:
                 self.line_edits[i][j].setStyleSheet("background-color:red")
-                self.line_edits[k][j].setStyleSheet("background-color:blue")
-                print("***")
+                # self.line_edits[k][j].setStyleSheet("background-color:blue")
                 return False
                 
         if 0<=i<3:
@@ -106,28 +102,33 @@ class MainWindow(QMainWindow):
             elif 6<=j<9:
                 self.square_check(i,j,6,6,number1)
 
+        return True
+
     def square_check(self,i,j,lower_row_bound,lower_col_bound,number1):
         for m in range(lower_row_bound,3+lower_row_bound):
             for n in range(lower_col_bound,3+lower_col_bound):
                 number2=self.line_edits[m][n].text()
                 if m!=i and n!=j and number2 != "" and number1==number2:
                     self.line_edits[i][j].setStyleSheet("background-color:red")
-                    self.line_edits[m][n].setStyleSheet("background-color:blue")
-                    print("***")
+                    # self.line_edits[m][n].setStyleSheet("background-color:blue")
                     return False
 
     def validation(self,i,j,text):
         if text not in ["1","2","3","4","5","6","7","8","9"]:
             self.line_edits[i][j].setText("")
-
+            
         self.check(i,j)
-
-        # if self.check(i,j)==False and self.line_edits[i][j].text()=="":
-        #     self.line_edits[i][j].setStyleSheet("background-color:green")
-        #     self.check(i,j)
-
-        if self.check(i,j)==True:
-            msg_box=...
+        complete=1
+        for x in range(9):
+            for y in range(9):
+                if self.line_edits[x][y].text() == "":
+                    complete=0
+                    break
+            
+        if complete==1 and self.check(i,j)==True:
+            msg_box= QMessageBox()
+            msg_box.setText("🎉You Win🎉")
+            msg_box.exec()
 
 if __name__=="__main__":
     app=QApplication(sys.argv)
