@@ -20,7 +20,6 @@ while True:
         i=i+1
         sum=sum+float(score)
 
-
 average=sum/i
 if average>=17:
     print("Great 😀")
