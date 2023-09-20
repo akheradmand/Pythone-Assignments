@@ -22,3 +22,4 @@ else:
             non_frequent_array.remove(random_number)
 
     print(non_frequent_array)
+    

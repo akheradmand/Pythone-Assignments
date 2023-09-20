@@ -10,3 +10,4 @@ for i in range(min(number1,number2),0,-1):
         kmm=number1*number2/bmm
         print("K.M.M = ", kmm)
         break
+    

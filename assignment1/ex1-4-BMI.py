@@ -19,3 +19,4 @@ else:
         print("you are Obecity")
     elif BMI>=35 and BMI<40:
         print("you are Extreme Obecity")
+        

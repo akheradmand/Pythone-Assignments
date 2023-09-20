@@ -17,3 +17,4 @@ for i in range(n//2):
         break
 else:
     print("input array is symmetrical")
+    

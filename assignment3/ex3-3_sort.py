@@ -24,4 +24,3 @@ for i in range(len(user_array)):
         break
 if breaker==False:
     print("✅This array is sorted from smallest to largest")
-

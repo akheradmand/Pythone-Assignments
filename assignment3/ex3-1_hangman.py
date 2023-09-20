@@ -38,3 +38,4 @@ while user_mistakes<6:
 if user_mistakes==6:
     print("game over")
     print("☠")
+    

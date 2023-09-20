@@ -10,3 +10,4 @@ if hr<0 or m<0 or s<0:
 else:
     sec=hr*3600 + m*60 + s
     print(hr,":",m,":",s," = ",sec, "seconds")
+    

@@ -7,3 +7,4 @@ class Heart(arcade.Sprite):
         self.center_y=20
         self.width=20
         self.height=20
+        

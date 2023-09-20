@@ -21,3 +21,4 @@ elif n % 2 == 1:
                 
 elif n % 2 == 0:
     print("please insert odd number")
+    

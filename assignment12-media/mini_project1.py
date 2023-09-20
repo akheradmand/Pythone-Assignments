@@ -118,4 +118,3 @@ while True:
         exit(0)
     else:
         print("wrong number")
-

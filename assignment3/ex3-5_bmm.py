@@ -8,3 +8,4 @@ for i in range(min(number1,number2),0,-1):
     if (number1 % i ==0) and (number2 % i == 0):
         print("B.M.M = ", i)
         break
+    

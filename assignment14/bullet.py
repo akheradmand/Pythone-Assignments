@@ -11,3 +11,4 @@ class Bullet(arcade.Sprite):
     
     def move(self):
         self.center_y += self.speed
+        

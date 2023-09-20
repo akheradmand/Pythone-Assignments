@@ -26,3 +26,4 @@ class Spaceship(arcade.Sprite):
     def fire(self):
         new_bullet=Bullet(self)
         self.bullet_list.append(new_bullet)
+        

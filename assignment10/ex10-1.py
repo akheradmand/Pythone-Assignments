@@ -18,5 +18,3 @@ class Fraction:
 
     def div(self):
         ...
-
-

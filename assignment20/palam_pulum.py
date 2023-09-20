@@ -28,3 +28,4 @@ elif max_score==computer2_score:
     print("computer2 win")
 elif max_score==your_score:
     print("you win👏")
+    
